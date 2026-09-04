@@ -1,7 +1,7 @@
 # 🔐 Network & Web Reconnaissance Dashboard
 
 <p align="center">
-  <b>An enterprise-ready Security Dashboard developed using ASP.NET Core MVC & C#</b><br>
+  <b>A Security Dashboard developed using ASP.NET Core MVC & C#</b><br>
   Integrating practical Certified Ethical Hacker (CEH) footprinting & web vulnerability scanning.
 </p>
 
@@ -25,8 +25,8 @@ The primary objective of this dashboard is to bridge the gap between theoretical
 
 ### 🌐 Network Reconnaissance
 - **Host Discovery**: ICMP Ping testing to identify active hosts.
-- **DNS Resolution**: Forward and reverse DNS lookups.
-- **TCP Port Scanner**: Efficient multi-threaded scanning of target ports.
+- **DNS Resolution**: Resolves hostnames and domains to IP addresses.
+- **TCP Port Scanner**: Scans a list of common TCP ports with connection timeouts.
 - **Service & Banner Grabbing**: Identification of running services and exposed banners on open ports.
 - **Report Generation**: Exporting network reconnaissance results into printable summaries.
 
@@ -40,10 +40,9 @@ The primary objective of this dashboard is to bridge the gap between theoretical
 
 ## 🛠️ Tech Stack & Dependencies
 
-- **Backend**: C# | .NET Core MVC | System.Net (Sockets, Sockets.Ping, DNS)
+- **Backend**: C# | ASP.NET Core MVC
+- **Networking**: System.Net | System.Net.Sockets | System.Net.NetworkInformation
 - **Frontend**: HTML5 | CSS3 | JavaScript | Bootstrap 5
-- **Architecture**: Repository / Service Layer Pattern
-- **Development Environment**: Visual Studio / Windsurf IDE
 
 ---
 
@@ -121,15 +120,15 @@ Network-Recon-Dashboard
 2. `ReconService` performs a DNS lookup to resolve the IP address.
 3. Ping is utilized for host vitality discovery.
 4. Target TCP ports are scanned concurrently.
-5. Open ports trigger service banner requests.
+5. Open ports are checked for basic service banner information.
 6. Aggregated results are displayed on the dashboard.
 
 ### 2. Web Security Workflow
 
 1. User submits a web target URL.
-2. `XssService` executes HTTP requests to analyze response headers.
+2. The application sends an HTTP request to the target URL.
 3. Server metadata and HTTP status codes are extracted.
-4. Input strings are evaluated for basic reflected input behavior.
+4. User input is checked for basic reflected input behavior.
 
 ---
 
