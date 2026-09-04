@@ -1,14 +1,17 @@
-```markdown
 # 🔐 Network & Web Reconnaissance Dashboard
 
-An enterprise-ready **Security Dashboard** developed using **ASP.NET Core MVC** and **C#**, integrating practical **Certified Ethical Hacker (CEH)** footprinting and web vulnerability techniques into a centralized management interface.
+<p align="center">
+  <b>An enterprise-ready Security Dashboard developed using ASP.NET Core MVC & C#</b><br>
+  Integrating practical Certified Ethical Hacker (CEH) footprinting & web vulnerability scanning.
+</p>
 
 ---
 
-## 📸 Dashboard Overview
+## 📸 Dashboard Preview
 
-### 🏠 Main Interface
-![Dashboard Homepage](screenshots/homePage.png)
+<div align="center">
+  <img src="screenshots/homePage.png" alt="Dashboard Homepage" width="90%" style="border-radius: 8px; box-shadow: 0px 4px 12px rgba(0,0,0,0.15);">
+</div>
 
 ---
 
@@ -134,7 +137,7 @@ Network-Recon-Dashboard
 
 Watch a video walkthrough of the dashboard in action:
 
-👉 **[Watch Project Demo Video]([https://www.google.com/search?q=YOUR_VIDEO_LINK_HERE](https://drive.google.com/file/d/1hwAk4QvU1BBC6UudNsjyQs9YMV4nAaY1/view?usp=drive_link))**
+👉 **[Watch Project Demo Video](https://www.google.com/search?q=YOUR_VIDEO_LINK_HERE)**
 
 ---
 
@@ -157,8 +160,7 @@ This project is created strictly for **educational and authorized testing purpos
 
 **Basant Ali**
 
-*Full Stack.Net Web Developer*
-
-```
+*Full Stack .NET Web Developer*
+GitHub.
 
 ```
