@@ -137,7 +137,7 @@ Network-Recon-Dashboard
 
 Watch a video walkthrough of the dashboard in action:
 
-👉 [Watch Project Demo Video]([https://your-actual-video-link.com](https://drive.google.com/file/d/1hwAk4QvU1BBC6UudNsjyQs9YMV4nAaY1/view?usp=drive_link))
+👉 <a href="https://drive.google.com/file/d/1hwAk4QvU1BBC6UudNsjyQs9YMV4nAaY1/view?usp=drive_link" target="_blank">Watch Project Demo Video</a>
 
 ---
 
@@ -161,6 +161,5 @@ This project is created strictly for **educational and authorized testing purpos
 **Basant Ali**
 
 *Full Stack .NET Web Developer*
-GitHub.
 
 ```
