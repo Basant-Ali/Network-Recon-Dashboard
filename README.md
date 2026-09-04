@@ -137,7 +137,7 @@ Network-Recon-Dashboard
 
 Watch a video walkthrough of the dashboard in action:
 
-👉 **[Watch Project Demo Video]([https://www.google.com/search?q=YOUR_VIDEO_LINK_HERE](https://drive.google.com/file/d/1hwAk4QvU1BBC6UudNsjyQs9YMV4nAaY1/view?usp=drive_link))**
+👉 **[Watch Project Demo Video] [https://www.google.com/search?q=YOUR_VIDEO_LINK_HERE](https://drive.google.com/file/d/1hwAk4QvU1BBC6UudNsjyQs9YMV4nAaY1/view?usp=drive_link)**
 
 ---
 
