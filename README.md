@@ -161,5 +161,3 @@ This project is created strictly for **educational and authorized testing purpos
 **Basant Ali**
 
 *Full Stack .NET Web Developer*
-
-```
