@@ -1,0 +1,187 @@
+﻿@model NetworkWebRecon.Models.ReportViewModel
+
+@{
+    ViewData["Title"] = "Security Report";
+}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center">
+
+        <h1>Security Report</h1>
+
+        <button onclick="window.print()"
+                class="btn btn-success">
+
+            Print / Save PDF
+
+        </button>
+
+    </div>
+
+    <hr />
+
+    <!-- Network Information -->
+
+    <h3>Network Reconnaissance</h3>
+
+    <div class="card p-3 mb-4">
+
+        <p>
+            <strong>Target:</strong>
+            @Model.Target
+        </p>
+
+        <p>
+            <strong>Resolved IP:</strong>
+            @Model.ResolvedIP
+        </p>
+
+        <p>
+            <strong>Host Status:</strong>
+
+            @if (Model.IsAlive)
+            {
+                <span class="text-success">
+                    Alive
+                </span>
+            }
+            else
+            {
+                <span class="text-danger">
+                    Not Responding
+                </span>
+            }
+
+        </p>
+
+    </div>
+
+
+    <!-- Port Scan -->
+
+    <h3>Port Scan</h3>
+
+    <table class="table table-bordered">
+
+        <thead>
+
+            <tr>
+                <th>Port</th>
+                <th>Service</th>
+                <th>Status</th>
+                <th>Banner</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var port in Model.Ports)
+            {
+                <tr>
+
+                    <td>
+                        @port.Port
+                    </td>
+
+                    <td>
+                        @port.Service
+                    </td>
+
+                    <td>
+
+                        @if (port.IsOpen)
+                        {
+                            <span class="text-success">
+                                Open
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">
+                                Closed
+                            </span>
+                        }
+
+                    </td>
+
+                    <td>
+                        @port.Banner
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+
+    <!-- Web Recon -->
+
+    <h3 class="mt-4">
+        Web Reconnaissance
+    </h3>
+
+    <div class="card p-3">
+
+        <p>
+            <strong>URL:</strong>
+            @Model.WebUrl
+        </p>
+
+        <p>
+            <strong>Status Code:</strong>
+            @Model.WebStatusCode
+        </p>
+
+        <p>
+            <strong>Status:</strong>
+            @Model.WebStatus
+        </p>
+
+        <p>
+            <strong>Server:</strong>
+            @Model.WebServer
+        </p>
+
+    </div>
+
+
+    <!-- XSS -->
+
+    <h3 class="mt-4">
+        Reflected XSS Test
+    </h3>
+
+    <div class="card p-3">
+
+        <p>
+            <strong>Parameter:</strong>
+            @Model.XssParameter
+        </p>
+
+        @if (Model.XssReflectionDetected)
+        {
+            <div class="alert alert-warning">
+                Reflection Detected
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-success">
+                Reflection Not Detected
+            </div>
+        }
+
+    </div>
+
+
+    <hr />
+
+    <p class="text-muted">
+        Network & Web Reconnaissance Dashboard
+    </p>
+
+</div>

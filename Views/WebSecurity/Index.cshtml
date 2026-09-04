@@ -1,0 +1,169 @@
+﻿@{
+    ViewData["Title"] = "Web Security";
+}
+
+<div class="container mt-4">
+
+    <h1>Web Security</h1>
+
+    <p class="text-muted">
+        Basic Web Reconnaissance
+    </p>
+
+    <!-- Web Recon -->
+
+    <div class="card p-4">
+
+        <h3>Web Recon</h3>
+
+        <form method="post"
+              action="/WebSecurity/Scan">
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Target URL
+                </label>
+
+                <input type="url"
+                       name="url"
+                       class="form-control"
+                       placeholder="https://localhost:7217"
+                       required />
+
+            </div>
+
+            <button type="submit"
+                    class="btn btn-primary">
+
+                Scan Website
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- Web Recon Result -->
+    @if (ViewBag.StatusCode != null)
+    {
+        <div class="card p-4 mt-4">
+
+            <h3>Web Recon Result</h3>
+
+            <p>
+                <strong>URL:</strong>
+                @ViewBag.Url
+            </p>
+
+            <p>
+                <strong>Status Code:</strong>
+                @ViewBag.StatusCode
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                @ViewBag.Status
+            </p>
+
+            <p>
+                <strong>Server:</strong>
+                @ViewBag.Server
+            </p>
+
+        </div>
+    }
+
+
+    <!-- XSS Test -->
+
+    <div class="card p-4 mt-4">
+
+        <h3>Reflected XSS Test</h3>
+
+        <form method="post"
+              action="/WebSecurity/XssScan">
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Target URL
+                </label>
+
+                <input type="url"
+                       name="url"
+                       class="form-control"
+                       placeholder="https://localhost:7217/WebSecurity/Test"
+                       required />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Parameter
+                </label>
+
+                <input type="text"
+                       name="parameter"
+                       class="form-control"
+                       placeholder="query"
+                       required />
+
+            </div>
+
+            <button type="submit"
+                    class="btn btn-danger">
+
+                Run XSS Test
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- XSS Result -->
+    @if (ViewBag.XssResult != null)
+    {
+        <div class="card p-4 mt-4">
+
+            <h3>XSS Test Result</h3>
+
+            <p>
+                <strong>URL:</strong>
+                @ViewBag.XssUrl
+            </p>
+
+            <p>
+                <strong>Parameter:</strong>
+                @ViewBag.XssParameter
+            </p>
+
+            @if (ViewBag.XssResult == true)
+            {
+                <div class="alert alert-warning">
+                    Reflection Detected
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-success">
+                    Reflection Not Detected
+                </div>
+            }
+
+        </div>
+    }
+
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger mt-3">
+            @ViewBag.Error
+        </div>
+    }
+
+</div>

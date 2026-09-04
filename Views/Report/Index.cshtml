@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Generate Report";
+}
+
+<div class="container mt-4">
+
+    <h1>Security Report</h1>
+
+    <p class="text-muted">
+        Generate Network and Web Reconnaissance Report
+    </p>
+
+    <div class="card p-4">
+
+        <form method="post"
+              action="/Report/Generate">
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Network Target
+                </label>
+
+                <input type="text"
+                       name="target"
+                       class="form-control"
+                       placeholder="127.0.0.1"
+                       required />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Web URL
+                </label>
+
+                <input type="url"
+                       name="webUrl"
+                       class="form-control"
+                       placeholder="https://localhost:7217"
+                       required />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    XSS Parameter
+                </label>
+
+                <input type="text"
+                       name="xssParameter"
+                       class="form-control"
+                       placeholder="query" />
+
+            </div>
+
+            <button type="submit"
+                    class="btn btn-primary">
+
+                Generate Report
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>

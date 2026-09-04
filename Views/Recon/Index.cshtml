@@ -1,0 +1,202 @@
+﻿@model NetworkWebRecon.Models.ReconViewModel
+
+@{
+    ViewData["Title"] = "Network Recon";
+}
+
+<div class="container mt-4">
+
+    <h1>Network Reconnaissance</h1>
+
+    <p class="text-muted">
+        Basic Network Reconnaissance Dashboard
+    </p>
+
+    <form asp-controller="Recon"
+          asp-action="Scan"
+          method="post">
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Target IP / Domain
+            </label>
+
+            <input type="text"
+                   name="target"
+                   class="form-control"
+                   placeholder="127.0.0.1"
+                   required />
+
+        </div>
+
+        <button type="submit"
+                class="btn btn-primary">
+
+            Start Scan
+
+        </button>
+
+    </form>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger mt-3">
+            @ViewBag.Error
+        </div>
+    }
+
+    @if (Model != null && !string.IsNullOrEmpty(Model.Target))
+    {
+        <hr />
+
+        <h3>Scan Result</h3>
+
+        <div class="alert alert-info mt-3">
+
+            <strong>
+                Open Ports:
+            </strong>
+
+            @Model.OpenPortsCount
+
+        </div>
+
+        <div class="row mt-3">
+
+            <div class="col-md-4">
+
+                <div class="card p-3">
+
+                    <h5>Target</h5>
+
+                    <p>
+                        @Model.Target
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card p-3">
+
+                    <h5>Resolved IP</h5>
+
+                    <p>
+                        @Model.ResolvedIP
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card p-3">
+
+                    <h5>Host Status</h5>
+
+                    @if (Model.IsAlive)
+                    {
+                        <span class="text-success">
+                            Alive
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">
+                            Not Responding
+                        </span>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3 class="mt-4">
+            Port Scan
+        </h3>
+
+        <table class="table table-bordered">
+
+            <thead>
+
+                <tr>
+                    <th>Port</th>
+                    <th>Service</th>
+                    <th>Status</th>
+                    <th>Banner</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var port in Model.Ports)
+                {
+                    <tr>
+
+                        <td>
+                            @port.Port
+                        </td>
+
+                        <td>
+                            @port.Service
+                        </td>
+
+                        <td>
+
+                            @if (port.IsOpen)
+                            {
+                                <span class="text-success">
+                                    Open
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="text-danger">
+                                    Closed
+                                </span>
+                            }
+
+                        </td>
+
+                        <td>
+                            @if (!string.IsNullOrEmpty(port.Banner))
+                            {
+                                @port.Banner
+                            }
+                            else
+                            {
+                                <span class="text-muted">
+                                    -
+                                </span>
+                            }
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+
+    }
+
+    <div class="mt-4">
+
+        <button onclick="window.print()"
+                class="btn btn-success">
+
+            Print / Save Result as PDF
+
+        </button>
+
+    </div>
+
+</div>

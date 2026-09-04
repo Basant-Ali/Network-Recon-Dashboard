@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "XSS Test Lab";
+}
+
+<div class="container mt-4">
+
+    <h1>Reflected XSS Test Lab</h1>
+
+    <p class="text-muted">
+        Local testing page for Web Security training
+    </p>
+
+    <div class="card p-4 mt-4">
+
+        <form method="get"
+              action="/WebSecurity/Test">
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Search
+                </label>
+
+                <input type="text"
+                       name="query"
+                       class="form-control"
+                       placeholder="Enter test value"
+                       value="@ViewBag.Query" />
+
+            </div>
+
+            <button type="submit"
+                    class="btn btn-danger">
+
+                Test Input
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    @if (ViewBag.Query != null)
+    {
+        <div class="alert alert-info mt-4">
+
+            <h4>Search Result</h4>
+
+            <p>
+                You entered:
+                <strong>@ViewBag.Query</strong>
+            </p>
+
+        </div>
+    }
+
+</div>
