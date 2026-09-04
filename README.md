@@ -79,15 +79,20 @@ The primary objective of this dashboard is to bridge the gap between theoretical
 ## 📂 Project Structure
 
 ```text
-Network-Recon-Dashboard
+Network Recon Dashboard
 │
 ├── Controllers
+│   ├── HomeController.cs
 │   ├── ReconController.cs
+│   ├── ReportController.cs
 │   └── WebSecurityController.cs
 │
 ├── Models
+│   ├── DnsResult.cs
+│   ├── ErrorViewModel.cs
+│   ├── PortResult.cs
 │   ├── ReconViewModel.cs
-│   └── PortResult.cs
+│   └── ReportViewModel.cs
 │
 ├── Services
 │   ├── ReconService.cs
@@ -96,15 +101,14 @@ Network-Recon-Dashboard
 ├── Views
 │   ├── Home
 │   ├── Recon
+│   ├── Report
+│   ├── Shared
 │   └── WebSecurity
 │
 ├── screenshots
 │   └── homePage.png
 │
 ├── wwwroot
-│   ├── css
-│   └── js
-│
 ├── Program.cs
 └── README.md
 
